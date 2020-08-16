@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 # konfiguracja url z ksiazki "Python inst. programisty"
+# update od autor http://ehmatthes.github.io/pcc/chapter_18/README.html#updates
 from django.conf.urls import include, url
-# from django.contrib import admin  # to hashowane bo jest domyslnie czyli tak samo 
-# konic importu z ksiazki niby to samo co powyzej
+# koniec
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #strona glowna app learning log dodaje url wg ksiazki 
-    url(r'', include('learning_logs_app.urls', namespace='learning_logs_app')),
+    path('', include('learning_logs_app.urls')),
 ]
