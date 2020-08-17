@@ -18,7 +18,7 @@ from django.urls import path, include
 
 # konfiguracja url z ksiazki "Python inst. programisty"
 # update od autor http://ehmatthes.github.io/pcc/chapter_18/README.html#updates
-from django.conf.urls import include, url
+#from django.conf.urls import include, url
 # koniec
 
 urlpatterns = [
