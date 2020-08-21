@@ -19,5 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     #strona glowna app learning log
-    path('', include('learning_log'))
+    #path('', include('learning_log'))
 ]
