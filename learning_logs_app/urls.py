@@ -7,5 +7,5 @@ urlpatterns = [
     # Strona glówna 
     path('', views.index, name='index'),
     #strona tematów - topicShow all topics
-    #path('topics/', views.topics, name='topics'),
+    path('topics/', views.topics, name='topics'),
 ]
