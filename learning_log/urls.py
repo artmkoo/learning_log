@@ -16,8 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# konfiguracja url z ksiazki "Python inst. programisty"
+# update od autor http://ehmatthes.github.io/pcc/chapter_18/README.html#updates
+#from django.conf.urls import include, url
+# koniec
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     #strona glowna app learning log
     #path('', include('learning_log'))
+=======
+    #strona glowna app learning log dodaje url wg ksiazki 
+    path('', include('learning_logs_app.urls')),
+>>>>>>> f1b116707ce2fa1fc3b137d787caad275ea66827
 ]
