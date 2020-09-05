@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .models import Topic
+from .forms import TopicForm
+from django .http import HttpResponseRedirect
+from django .urls import reverse
 
 # Create your views here.
 
@@ -19,3 +22,18 @@ def topic (request, topic_id):
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
     return render (request, 'learning_logs_app/topic.html', context)
+
+def new_topic(request):
+    """Dodaj nowy temat"""
+    if request.method != 'POST':
+        #Nie przekazano żadnych danych, nalezy utworzyć pusty formularz
+        form = TopicForm()
+    else:
+        #Przkazano dane za pomoca żadania POST, należy je prztworzyć
+        form = TopicForm (request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('learning_logs_app:topics'))
+
+    context = {'form':form}
+    return render (request, 'learning_logs_app/new_topic.html', context) 
