@@ -8,4 +8,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     #strona tematów - topicShow all topics
     path('topics/', views.topics, name='topics'),
+    #strona poszczegolnych tematow / Detail page for a single topic.
+    path('topics/<int:topic_id>/', views.topic, name='topic'),
+    #page for adding new topic
+    path('new_topic/', views.new_topic, name='new_topic')
 ]

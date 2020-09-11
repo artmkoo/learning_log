@@ -23,6 +23,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #strona glowna app learning log dodaje url wg ksiazki 
+    #strona glowna app learning log
     path('', include('learning_logs_app.urls')),
 ]
