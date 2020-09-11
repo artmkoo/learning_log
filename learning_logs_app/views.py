@@ -1,8 +1,13 @@
 from django.shortcuts import render
+<<<<<<< HEAD
+# import dla topics
+from .models import Topic
+=======
 from .models import Topic
 from .forms import TopicForm
 from django .http import HttpResponseRedirect
 from django .urls import reverse
+>>>>>>> 9e4d9739c892ec5e14fda86cfabec031709d8bb6
 
 # Create your views here.
 
@@ -11,6 +16,12 @@ def index (request):
     return render(request, 'learning_logs_app/index.html')
 
 def topics (request):
+<<<<<<< HEAD
+    """Wyświetlanie wszystkich tematów"""
+    topics = Topic.objects.order_by('date_added')
+    context = {'topics': topics}
+    return render(request, 'learning_logs/topics.html', context)
+=======
     """ Wyświetlanie wszystkich tematów."""
     topics = Topic.objects.order_by ('date_added')
     context = {'topics':topics}
@@ -37,3 +48,4 @@ def new_topic(request):
 
     context = {'form':form}
     return render (request, 'learning_logs_app/new_topic.html', context) 
+>>>>>>> 9e4d9739c892ec5e14fda86cfabec031709d8bb6
