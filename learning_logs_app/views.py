@@ -34,6 +34,23 @@ def new_topic(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('learning_logs_app:topics'))
-
     context = {'form':form}
     return render (request, 'learning_logs_app/new_topic.html', context) 
+
+def new_entry(request, topic_id):
+    """Dodanie nowego wpisu dla określonego tematu"""
+    topic = Topic.objects.get(id=topic_id)
+    
+    if request.method != 'POST':
+        # Nie przekazano żadnych danych, należy utworzyć pusty formularz
+        form = EntryForm()
+    else:
+        # Przekazano dane za pomocą żądania POST, należy je przetowrzyć
+        form = EntryForm(data=request.POST)
+        if form.is_valid():
+            new_entry = form.save(commit=False)
+            new_entry.topic = topic
+            new_entry.save()
+            return HttpResponseRedirect (reverse('learning_logs_app:topic', args=[topic_id]))
+            context = {'topic': topic, 'form': form}
+            return render (request, 'learning_logs_app/new_entry.html', context)
