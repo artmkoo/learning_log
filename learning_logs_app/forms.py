@@ -12,5 +12,5 @@ class EntryForm(forms.ModelForm):
     class Mata:
         model = Entry
         fields = ['text']
-        labels = {'text': ''}
+        labels = {'text': ''} # niby ma byc blank label ...? a w kodzie jest 
         widgets = {'text': forms.Textarea(attrs={'cols': 80})}

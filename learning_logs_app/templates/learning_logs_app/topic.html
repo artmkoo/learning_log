@@ -6,13 +6,13 @@
 <p>Wpisy: </p>
 
 <p>
-    <a href="{% url 'learning_logs_app: new_entry' topic.id %}">"Dodaj nowy wpis"</a>
+    <a href="{% url 'learning_logs_app:new_entry' topic.id %}">"Dodaj nowy wpis"</a>
 </p>
 
 <ul>
     {% for entry in entries %}
     <li>
-        <p>{{ entry.date_added|date:'d M Y H:i' }}</p>
+        <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
         <p>{{ entry.text|linebreaks }}</p>
     </li>
     {% empty %}
