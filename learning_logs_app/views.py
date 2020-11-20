@@ -3,6 +3,8 @@ from .models import Topic
 from .forms import TopicForm, EntryForm
 from django .http import HttpResponseRedirect
 from django .urls import reverse
+#test dupa
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -56,6 +58,6 @@ def new_entry(request, topic_id):
             new_entry.save()
             return redirect ('learning_logs_app:topic', topic_id=topic_id)
 
-            # Display a blank or invalid form.
-            context = {'topic': topic, 'form': form}
-            return render (request, 'learning_logs_app/new_entry.html', context)
+    #Display a blank or invalid form.
+    context = {'topic': topic, 'form': form}
+    return render (request, 'learning_logs_app/new_entry.html', context)
