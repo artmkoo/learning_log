@@ -1,0 +1,17 @@
+{% extends "learning_logs_app/base.html" %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <p>Haslo nie jest prawidlowe. Sprobuj ponownie</p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        {{ form.as_p  }}
+
+        <button name= "submit">Log in </button>
+        <input type="hidden" name= "next" value="{% url 'learning_logs_app:index' %}" />
+    </form>
+
+{% endblock content %}

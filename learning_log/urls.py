@@ -23,6 +23,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     #strona glowna app learning log
     path('', include('learning_logs_app.urls')),
+    # aplikacja users
+    path ('users/', include('users.urls')),
 ]
